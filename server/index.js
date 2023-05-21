@@ -10,9 +10,9 @@ let socketList = {};
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route
-app.get('/ping', (req, res) => {
-  res
-    .send({
+app.get('/', (req, res) => {
+  console.log('Server is running');
+  res.send({
       success: true,
     })
     .status(200);
