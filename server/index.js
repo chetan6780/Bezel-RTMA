@@ -1,24 +1,28 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const PORT = process.env.PORT || 3001;
 const path = require('path');
-const cors = require('cors');
 
 // allow cross origin access 
-app.use(cors());
+app.use(cors({
+  origin: ['https://bezel-ui.netlify.app']
+}));
+
+app.options('*', cors());
 
 let socketList = {};
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route
-app.get('/', (req, res) => {
+app.get('/ping', (req, res) => {
   console.log('Server is running');
   res.send({
-      success: true,
-    })
+    success: true,
+  })
     .status(200);
 });
 
