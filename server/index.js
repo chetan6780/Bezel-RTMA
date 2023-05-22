@@ -15,6 +15,16 @@ app.options('*', cors());
 
 let socketList = {};
 
+// Route
+app.get('/ping', (req, res) => {
+  console.log('Server is running');
+  res.send({
+    success: true,
+  })
+    .status(200);
+});
+
+
 if (process.env.NODE_ENV === 'production') {
   console.log("Serving production app")
   app.use(express.static(path.join(__dirname, '../client/build')));
@@ -26,15 +36,6 @@ if (process.env.NODE_ENV === 'production') {
   console.log("Serving local app")
   app.use(express.static(path.join(__dirname, 'public')));
 }
-
-// Route
-app.get('/ping', (req, res) => {
-  console.log('Server is running');
-  res.send({
-    success: true,
-  })
-    .status(200);
-});
 
 // Socket
 io.on('connection', (socket) => {
