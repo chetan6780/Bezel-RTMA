@@ -14,7 +14,7 @@
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.1"
   },
-  "homepage": "https://bezel-rtc.vercel.app/",
+  "homepage": "https://bezel-ui.netlify.app/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -36,5 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "https://bezel-rtma.vercel.app"
 }

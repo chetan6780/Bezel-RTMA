@@ -17,6 +17,15 @@ let socketList = {};
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+if (process.env.NODE_ENV === 'production') {
+  console.log("Serving production app")
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+}
+
 // Route
 app.get('/ping', (req, res) => {
   console.log('Server is running');
