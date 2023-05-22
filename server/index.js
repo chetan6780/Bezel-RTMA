@@ -4,6 +4,10 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const PORT = process.env.PORT || 3001;
 const path = require('path');
+const cors = require('cors');
+
+// allow cross origin access 
+app.use(cors());
 
 let socketList = {};
 
