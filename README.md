@@ -44,3 +44,4 @@ Start the development server
 npm run dev
 ```
 
+Developed by Chetan Patil & Sakshi Kulkarni.
